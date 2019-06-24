@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time</title>
+</head>
+<body>
+<button id="btn_time" type="button" onclick="timeout()">Start</button>
+<!--<input type="text" id="time" value=""/>-->
+<script>
+  var m = 9 ,s= 59,flag = false;
+  var it;
+  function timeout() {
+    // m = document.getElementById("time").value;
+    if(flag){
+      flag = false;
+    }else {
+      flag= true;
+    }
+    if(flag){
+      it = setInterval(function () {
+        if(m==0&& s==0){
+          var m1 = m<10?"0"+m:m;
+          var s1 = s<10?"0"+s:s;
+          console.log(m1+":"+s1);
+          clearInterval(it);
+        }else {
+          var m1 = m<10?"0"+m:m;
+          var s1 = s<10?"0"+s:s;
+          console.log(m1+":"+s1);
+        }
+        if(s==0){
+          m--;
+          if(m>=0){
+            s=59;
+          }
+        }else {
+          s--;
+        }
+      },1000);
+      var div = document.getElementById("btn_time");
+      div.innerText="Pause";
+    }else {
+      clearInterval(it);
+      // var div = document.getElementById("btn_time");
+      // div.innerText="Start";
+    }
+  }
+
+</script>
+</body>
+</html>
