@@ -1,0 +1,24 @@
+
+.popup{
+  background-image: url(lopTruong.jpg);
+  float: left;
+  width: 952px;
+  height: 960px;
+  text-align: center;
+}
+.popup h2{
+  color: white;
+  font-size: 50px;
+  margin: 180px;
+}
+.popup div{
+  color: white;
+  font-size: 100px;
+}
+.popup .timer span{
+  font-size: 40px;
+}
+.popup .timer em{
+  font-size: 40px;
+  font-style: normal;
+}

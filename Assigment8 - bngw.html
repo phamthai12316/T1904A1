@@ -1,0 +1,68 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="Assigment8.css">
+  <title>Document</title>
+</head>
+<body>
+<div class="popup">
+  <h2>Đếm ngược thời gian hạ giá lớp trưởng</h2>
+  <div>
+    <span  class="hour">00</span>
+    <em>:</em>
+    <span class="min">00</span>
+    <em>:</em>
+    <span class="sec">00</span>
+  </div>
+<!--  <button type="button" onclick="duplicate()">Start</button>-->
+</div>
+<script type="text/javascript">
+  // function duplicate() {
+  //   //   var dv = document.getElementsByClassName('popup')[0];
+  //   //   var html = dv.outerHTML;
+  //   //   dv.outerHTML = html +html;
+  //   // }
+    function countdownTimer() {
+      var h = 47;
+      var m = 59;
+      var s = 59;
+      var it = setInterval(function () {
+        if (h < 0 && m < 0 && s < 0) {
+          clearInterval(it);
+        }
+        var hh = document.getElementsByClassName('hour');
+        var mm = document.getElementsByClassName('min');
+        var ss = document.getElementsByClassName('sec');
+        for (var i = 0; i < hh.length; i++) {
+          hh[i].innerText = h < 10 ? "0" + h : h;
+          mm[i].innerText = m < 10 ? "0" + m : m;
+          ss[i].innerText = s < 10 ? "0" + s : s;
+        }
+        // document.getElementById('hour').innerText = h < 10 ? "0" + h : h;
+        // document.getElementById('min').innerText = m < 10 ? "0" + m : m;
+        // document.getElementById('sec').innerText = s < 10 ? "0" + s : s;
+        s--;
+        if (s == 0) {
+          m--;
+          s = 59;
+        }
+        if (m == 0) {
+          h--;
+          m = 59;
+        }
+        if (h == 0) {
+          document.getElementById('timer').innerText = 'Hết giờ';
+        }
+      }, 1000);
+
+    }
+
+    countdownTimer();
+</script>
+</body>
+</html>
