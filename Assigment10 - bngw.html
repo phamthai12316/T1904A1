@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Weather London</title>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <link rel="stylesheet" href="Assigment10.css">
+</head>
+<body>
+<table>
+  <tr>
+    <th style="background-image: url('A10_1.jpg')">City</th>
+    <th style="background-image: url('A10_2.png')">Temp</th>
+    <th style="background-image: url('A10_2.png')">Temp Max</th>
+    <th style="background-image: url('A10_2.png')">Temp Min</th>
+    <th style="background-image: url('A10_3.jpg')">Wind Speed</th>
+    <th style="background-image: url('A10_4.png')">Description</th>
+  </tr>
+  <tr>
+    <td id="city"></td>
+    <td id="temp"></td>
+    <td id="max"></td>
+    <td id="min"></td>
+    <td id="windSpeed"></td>
+    <td id="des"></td>
+  </tr>
+</table>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $.ajax({
+      url: "data/weather.json",
+      method: "get",
+      success: function (data) {
+        $("#city").text(data.name);
+        $("#temp").text(data.main.temp);
+        $("#max").text(data.main.temp_max);
+        $("#min").text(data.main.temp_min);
+        $("#windSpeed").text(data.wind.speed);
+        $("#des").text(data.weather[0].description);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
