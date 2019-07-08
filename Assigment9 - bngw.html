@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link type="text/css" rel="stylesheet" href="css/slide.css"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body>
+<section class="demo">
+  <button class="next">></button>
+  <button class="prev"><</button>
+  <div class="container">
+    <div style="display: inline-block;">
+      <img src="A1.jpg"/>
+    </div>
+    <div>
+      <img src="A2.png"/>
+    </div>
+    <div>
+      <img src="A3.png"/>
+    </div>
+    <div>
+      <img src="A4.png"/>
+    </div>
+    </div>
+
+</section>
+<script>
+  var currentIndex = 0,
+    items = $('.container div'),
+    itemAmt = items.length;
+
+  function cycleItems() {
+    var item = $('.container div').eq(currentIndex);
+    items.hide();
+    item.css('display','inline-block');
+  }
+
+  var autoSlide = setInterval(function() {
+    currentIndex += 1;
+    if (currentIndex > itemAmt - 1) {
+      currentIndex = 0;
+    }
+    cycleItems();
+  }, 3000);
+
+  $('.next').click(function() {
+    clearInterval(autoSlide);
+    currentIndex += 1;
+    if (currentIndex > itemAmt - 1) {
+      currentIndex = 0;
+    }
+    cycleItems();
+  });
+
+  $('.prev').click(function() {
+    clearInterval(autoSlide);
+    currentIndex -= 1;
+    if (currentIndex < 0) {
+      currentIndex = itemAmt - 1;
+    }
+    cycleItems();
+  });
+</script>
+</body>
+</html>
+
